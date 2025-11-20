@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family:"NunitoMedium", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +10,17 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: "NunitoBold";
+  src: url(./fonts/Nunito-Bold.ttf);
+}
+@font-face {
+  font-family: "NunitoMedium";
+  src: url(./fonts/Nunito-Medium.ttf);
+}
+@font-face {
+  font-family: "NunitoLight";
+  src: url(./fonts/Nunito-Light.ttf);
 }
