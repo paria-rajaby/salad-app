@@ -1,0 +1,27 @@
+.header-topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.shop-name{
+    font-family: "NunitoBold";
+}
+.basket{
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    outline: none;
+}
+.header-desc{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.header-desc_text{
+    width: 500px;
+}
+.header-desc_img{
+    transform: translateY(-50px);
+    width: 500px;
+    height: 500px;
+}
