@@ -4,6 +4,9 @@
   position: relative;
   z-index: 999;
 }
+main{
+  overflow-x: hidden;
+}
 /* .App {
   text-align: center;
 }

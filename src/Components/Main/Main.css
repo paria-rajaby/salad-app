@@ -1,0 +1,88 @@
+.main{
+     margin-top: 100px;
+}
+.main-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-info_title{
+    margin: 0;
+}
+.main-products{
+    text-align: center;
+    margin-top: 100px;
+}
+.salad-wrapper{
+    background-color: rgba(255,255,255,0.3);
+    height: 379px;
+    backdrop-filter: blur(5px);
+    position: relative;
+    padding: 19px;
+    border-radius: 20px;
+    margin: 0 auto;
+    transition: all 600ms ease-in;
+}
+.salad-wrapper:hover{
+    transform: translateY(-25px);
+}
+.salad-image{
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    bottom: 250px;
+    /* box-shadow: 0px 22px 26px -4px rgba(0,0,0,0.57); */
+    border-radius: 100%;
+    transition: all 600ms ease-in;
+}
+.salad-image:hover{
+   transform: rotate(90deg)  scale(1.1);
+ 
+}
+.salad-infos{
+   margin-top: 170px;
+   height: 75px;
+}
+.salad-infos span{
+    font-family: "NunitoBold";
+    font-size: 24px;
+}
+.salad-buy_section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 65px;
+}
+.salad-buy_section button{
+    border: none;
+    padding: 12px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.salad-buy_section button:hover{
+    background-color: transparent;
+    border: 1px solid black;
+}
+.salad-buy_section svg{
+    width: 20px;
+    height: 20px;
+}
+
+.swiper{
+    overflow: visible;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

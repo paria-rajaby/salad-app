@@ -5,12 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url(/public/images/saladbowl.png);
+  background: url(/public/images/bg9.jpg);
   background-size: cover;
   background-position: center;
   position: relative;
   min-height: 100vh;
   z-index: 100;
+  color: #fff;
+  text-shadow: -1px 3px 6px rgba(0,0,0,0.81);
 }
 .bg-overlay{
   position:fixed;

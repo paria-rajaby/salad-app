@@ -11,6 +11,8 @@
     background-color: transparent;
     font-size: 30px;
     outline: none;
+    color: #fff;
+    text-shadow: -1px 3px 6px rgba(0,0,0,0.81);
 }
 .header-desc{
     display: flex;
