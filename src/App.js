@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
+import Team from "./Components/Team/Team";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Main title="Top List" desc="Try our best items" items={popular} />
         <Main title="Vegan Salad" desc="Fresh vegan salads" items={vegan} />
         <Main title="Meat Salad" desc="Fresh meat salads" items={meat} />
+        <Team />
       </main>
     </div>
   );
