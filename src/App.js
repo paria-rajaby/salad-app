@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
 import Team from "./Components/Team/Team";
+import Reserve from "./Components/Reserve/Reserve";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Main title="Vegan Salad" desc="Fresh vegan salads" items={vegan} />
         <Main title="Meat Salad" desc="Fresh meat salads" items={meat} />
         <Team />
+        <Reserve />
       </main>
     </div>
   );
