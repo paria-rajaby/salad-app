@@ -19,11 +19,22 @@ export default function Main({ title, desc, items }) {
           <Swiper
             className="swiper"
             spaceBetween={20}
-            slidesPerView={3}
+            slidesPerView={1}
             loop={true}
             navigation={true}
             centeredSlides={true}
             modules={[Navigation]}
+            breakpoints={{
+              1024: {
+                slidesPerView: 3,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              // 468: {
+              //   slidesPerView: 1,
+              // },
+            }}
           >
             {items.map((item) => (
               <SwiperSlide>
