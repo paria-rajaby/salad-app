@@ -22,3 +22,27 @@
     background-color: #fff;
     margin-top: 10px;
 }
+
+/* responsive section */
+
+/* @media (max-width : 480px) {
+    .reserve-section div h2{
+        width: 200px;
+    }
+    .reserve-section div button{
+        padding: 5px 15px;
+    }
+} */
+@media (max-width : 480px) {
+    .reserve-section div{
+        gap: 10px;
+        flex-direction: column;
+    }
+    .reserve-section div h2{
+        text-align: center;
+        margin: 0 auto;
+    }
+    .reserve-section div button{
+        width: 100%;
+    }
+}
