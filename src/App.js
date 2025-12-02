@@ -3,6 +3,7 @@ import Header from "./Components/Header/Header";
 import Main from "./Components/Main/Main";
 import Team from "./Components/Team/Team";
 import Reserve from "./Components/Reserve/Reserve";
+import Footer from "./Components/Footer/Footer";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
         <Team />
         <Reserve />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

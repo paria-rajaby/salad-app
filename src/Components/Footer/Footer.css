@@ -1,0 +1,10 @@
+span{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+span a{
+    color: #463c3c;
+    text-shadow: none;
+}
