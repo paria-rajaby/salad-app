@@ -9,9 +9,6 @@
     width: 500px;
     height: 500px;
 }
-.team-desc_wrapper{
-    width: 600px;
-}
 .team-desc_wrapper h2{
     font-family: "NunitoBold";
     font-size: 40px;
@@ -30,4 +27,35 @@
 }
 .team-desc_wrapper button:hover{
     transform: scale(1.1);
+}
+
+/* responsive section */
+
+@media (max-width : 1024px) {
+       .team-desc_wrapper h2{
+        font-size: 25px;
+    }
+    .team-desc_wrapper p{
+        font-size: 12px;
+    }
+    .teamsection-wrapper img{
+        width: 300px;
+        height: 300px;
+    }
+}
+@media (max-width : 760px) {
+    .teamsection-wrapper{
+        flex-direction: column;
+    }
+    .team-desc_wrapper{
+        text-align: center;
+        max-width: 500px;
+    }
+    .team-desc_wrapper button{
+        margin: 20px auto 0 auto;
+    }
+     .teamsection-wrapper img{
+        width: 250px;
+        height: 250px;
+    }
 }
