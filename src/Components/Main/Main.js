@@ -7,7 +7,7 @@ import { IoAddOutline } from "react-icons/io5";
 
 import { Navigation } from "swiper/modules";
 
-export default function Main({ title, desc, items }) {
+export default function Main({ title, desc, items, onAdd }) {
   return (
     <div className="main">
       <div className="main-info">
@@ -31,9 +31,6 @@ export default function Main({ title, desc, items }) {
               768: {
                 slidesPerView: 2,
               },
-              // 468: {
-              //   slidesPerView: 1,
-              // },
             }}
           >
             {items.map((item) => (
@@ -46,7 +43,7 @@ export default function Main({ title, desc, items }) {
                   </div>
                   <div className="salad-buy_section">
                     <span>{item.price}</span>
-                    <button>
+                    <button onClick={() => onAdd(item.id)}>
                       <IoAddOutline />
                     </button>
                   </div>
