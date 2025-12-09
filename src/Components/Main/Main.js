@@ -1,13 +1,20 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./Main.css";
 import { IoAddOutline } from "react-icons/io5";
-
 import { Navigation } from "swiper/modules";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function Main({ title, desc, items, onAdd }) {
+  const showAlert = () => {
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+      text: "The selected salad was successfully added to your basket.",
+      icon: "success",
+    });
+  };
   return (
     <div className="main">
       <div className="main-info">
@@ -43,7 +50,12 @@ export default function Main({ title, desc, items, onAdd }) {
                   </div>
                   <div className="salad-buy_section">
                     <span>{item.price}</span>
-                    <button onClick={() => onAdd(item.id)}>
+                    <button
+                      onClick={() => {
+                        onAdd(item.id);
+                        showAlert();
+                      }}
+                    >
                       <IoAddOutline />
                     </button>
                   </div>

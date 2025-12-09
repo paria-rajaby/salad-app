@@ -1,4 +1,5 @@
 import styles from "./Header.module.css";
+import Loader from "../Loader/Loader";
 import { FaBasketShopping } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
@@ -9,12 +10,14 @@ import { useState } from "react";
 export default function Header({ basket, fetchData }) {
   const key = process.env.REACT_APP_SUPABASE_KEY;
   const url = process.env.REACT_APP_SUPABASE_URL;
-
+  const [loading, setLoading] = useState(false);
   const [basketOpen, setBasketOpen] = useState(false);
+
   const openBasket = () => {
     setBasketOpen((prev) => !prev);
   };
   const removeItem = async (id) => {
+    setLoading(true);
     const res = await fetch(`${url}/rest/v1/salads?id=eq.${id}`, {
       method: "PATCH",
       headers: {
@@ -25,7 +28,7 @@ export default function Header({ basket, fetchData }) {
       },
       body: JSON.stringify({ bought: false }),
     });
-
+    setLoading(false);
     fetchData();
   };
   const getItem = async (id) => {
@@ -41,6 +44,7 @@ export default function Header({ basket, fetchData }) {
     return data[0];
   };
   const increaseCount = async (id) => {
+    setLoading(true);
     const item = await getItem(id);
     const newCount = (item.count || 0) + 1;
 
@@ -56,11 +60,13 @@ export default function Header({ basket, fetchData }) {
     });
 
     fetchData();
+    setLoading(false);
   };
   const minusCount = async (id) => {
+    setLoading(true);
     const item = await getItem(id);
     const newCount = (item.count || 0) - 1;
-    if (newCount >= 0) {
+    if (newCount <= 0) {
       removeItem(id);
     } else {
       await fetch(`${url}/rest/v1/salads?id=eq.${id}`, {
@@ -76,119 +82,127 @@ export default function Header({ basket, fetchData }) {
     }
 
     fetchData();
+    setLoading(false);
   };
   return (
-    <div className={styles.header}>
-      <div className={styles.header_topbar}>
-        <span className={styles.shop_name}>FRESHBOWL</span>
-        <div className={styles.basket_btn} onClick={openBasket}>
-          <FaBasketShopping />
-          {basket.length > 0 ? (
-            <span className={`${styles.basket_counter} ${styles.flex}`}>
-              {basket.length}
-            </span>
-          ) : null}
-          {basketOpen ? (
-            <div
-              style={{ width: basket.length < 1 ? "300px" : "" }}
-              className={styles.basket_wrapper}
-            >
-              <div className={`${styles.basket_top} ${styles.flex}`}>
-                <button className={styles.custom_button} onClick={openBasket}>
-                  <CiCircleRemove
-                    className={styles.custom_svg}
-                    onClick={openBasket}
-                  />
-                </button>
-                <span>Basket</span>
-              </div>
+    <>
+      {loading ? <Loader /> : null}
+      <div className={styles.header}>
+        <div className={styles.header_topbar}>
+          <span className={styles.shop_name}>FRESHBOWL</span>
+          <div className={styles.basket_btn} onClick={openBasket}>
+            <FaBasketShopping />
+            {basket.length > 0 ? (
+              <span className={`${styles.basket_counter} ${styles.flex}`}>
+                {basket.length}
+              </span>
+            ) : null}
+            {basketOpen ? (
               <div
-                style={{ height: basket.length < 1 ? "150px" : "" }}
-                className={styles.basket_middle}
+                style={{ width: basket.length < 1 ? "300px" : "" }}
+                className={styles.basket_wrapper}
               >
-                {basket.length ? (
-                  basket.map((item) => (
-                    <div
-                      key={item.id}
-                      className={`${styles.basket_item} ${styles.flex}`}
-                    >
+                <div className={`${styles.basket_top} ${styles.flex}`}>
+                  <button className={styles.custom_button} onClick={openBasket}>
+                    <CiCircleRemove
+                      className={styles.custom_svg}
+                      onClick={openBasket}
+                    />
+                  </button>
+                  <span>Basket</span>
+                </div>
+                <div
+                  style={{ height: basket.length < 1 ? "150px" : "" }}
+                  className={styles.basket_middle}
+                >
+                  {basket.length ? (
+                    basket.map((item) => (
                       <div
-                        className={`${styles.basket_item_desc} ${styles.flex}`}
+                        key={item.id}
+                        className={`${styles.basket_item} ${styles.flex}`}
                       >
-                        <div className={`${styles.section_one} ${styles.flex}`}>
-                          <div className={styles.basket_item_desc_image}>
-                            <img src={item.image} alt="salad" />
+                        <div
+                          className={`${styles.basket_item_desc} ${styles.flex}`}
+                        >
+                          <div
+                            className={`${styles.section_one} ${styles.flex}`}
+                          >
+                            <div className={styles.basket_item_desc_image}>
+                              <img src={item.image} alt="salad" />
+                            </div>
+                            <div
+                              className={`${styles.basket_item_desc_textwrapper} ${styles.flex}`}
+                            >
+                              <h2 className={styles.salad_title}>
+                                {item.name}
+                              </h2>
+                              <p>{item.price}</p>
+                            </div>
                           </div>
                           <div
-                            className={`${styles.basket_item_desc_textwrapper} ${styles.flex}`}
+                            className={`${styles.basket_item_desc_countwrapper} ${styles.flex}`}
                           >
-                            <h2 className={styles.salad_title}>{item.name}</h2>
-                            <p>{item.price}</p>
-                          </div>
-                        </div>
-                        <div
-                          className={`${styles.basket_item_desc_countwrapper} ${styles.flex}`}
-                        >
-                          <div>
+                            <div>
+                              <button
+                                className={styles.custom_button}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  increaseCount(item.id);
+                                }}
+                              >
+                                <FaPlus className={styles.custom_svg} />
+                              </button>
+                              <span>{item.count}</span>
+                              <button
+                                className={styles.custom_button}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  minusCount(item.id);
+                                }}
+                              >
+                                <FaMinus className={styles.custom_svg} />
+                              </button>
+                            </div>
                             <button
                               className={styles.custom_button}
                               onClick={(e) => {
                                 e.stopPropagation();
-                                increaseCount(item.id);
+                                removeItem(item.id);
                               }}
                             >
-                              <FaPlus className={styles.custom_svg} />
-                            </button>
-                            <span>{item.count}</span>
-                            <button
-                              className={styles.custom_button}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                minusCount(item.id);
-                              }}
-                            >
-                              <FaMinus className={styles.custom_svg} />
+                              <FaTrash className={styles.custom_svg} />
                             </button>
                           </div>
-                          <button
-                            className={styles.custom_button}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              removeItem(item.id);
-                            }}
-                          >
-                            <FaTrash className={styles.custom_svg} />
-                          </button>
                         </div>
                       </div>
-                    </div>
-                  ))
-                ) : (
-                  <span
-                    style={{ textAlign: basket.length < 1 ? "center" : "" }}
-                  >
-                    Your basket is empty
-                  </span>
-                )}
+                    ))
+                  ) : (
+                    <span
+                      style={{ textAlign: basket.length < 1 ? "center" : "" }}
+                    >
+                      Your basket is empty
+                    </span>
+                  )}
+                </div>
+                <div className={styles.basket_buttom}>
+                  <button>Show Basket</button>
+                </div>
               </div>
-              <div className={styles.basket_buttom}>
-                <button>Show Basket</button>
-              </div>
-            </div>
-          ) : null}
+            ) : null}
+          </div>
+        </div>
+        <div className={styles.header_desc}>
+          <h1 className={styles.header_desc_text}>
+            “Dive into fresh, crunchy salads bursting with flavor, colors, and
+            happiness – because healthy food should always be this fun!”
+          </h1>
+          <img
+            className={styles.header_desc_img}
+            src="./images/saladbowl.png"
+            alt="salad"
+          />
         </div>
       </div>
-      <div className={styles.header_desc}>
-        <h1 className={styles.header_desc_text}>
-          “Dive into fresh, crunchy salads bursting with flavor, colors, and
-          happiness – because healthy food should always be this fun!”
-        </h1>
-        <img
-          className={styles.header_desc_img}
-          src="./images/saladbowl.png"
-          alt="salad"
-        />
-      </div>
-    </div>
+    </>
   );
 }
