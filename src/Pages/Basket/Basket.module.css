@@ -52,3 +52,40 @@
     align-items: center;
     gap: 20px
 }
+
+
+@media (max-width: 600px) {
+    .item{
+        padding: 5px;
+        gap: 3px;
+    }
+    .item h3{
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+   margin: auto;
+    } 
+}
+@media (max-width: 480px) {
+    .items_wrapper{
+        padding: 5px;
+    }
+    .item h3{
+        width: 70px;
+        font-size: 14px;
+    } 
+    .item img{
+        width: 40px;
+        height: 40PX;
+    } 
+
+    .item span{
+        font-size: 12px;
+    } 
+    .item button svg{
+        width: 10px;
+        height: 10px;
+    } 
+}

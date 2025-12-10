@@ -24,15 +24,6 @@
 }
 
 /* responsive section */
-
-/* @media (max-width : 480px) {
-    .reserve-section div h2{
-        width: 200px;
-    }
-    .reserve-section div button{
-        padding: 5px 15px;
-    }
-} */
 @media (max-width : 480px) {
     .reserve-section div{
         gap: 10px;
