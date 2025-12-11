@@ -58,6 +58,7 @@ function Layout() {
         <header>
           <Header basket={basket} fetchData={fetchData} />
         </header>
+
         <main>
           <Main
             title="Top List"

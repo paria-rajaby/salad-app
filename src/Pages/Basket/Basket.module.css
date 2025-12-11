@@ -7,6 +7,9 @@
     border: 1px dotted;
     border-radius: 20px;
     padding: 15px;
+    overflow : hidden;
+    height: 350px;
+    overflow-y: scroll;
 }
 .item{
     display: grid;
@@ -69,8 +72,12 @@
     } 
 }
 @media (max-width: 480px) {
+    .basket_wrapper h1 , .total_info h2 {
+        font-size: 16px;
+    }
     .items_wrapper{
         padding: 5px;
+        height: 200px;
     }
     .item h3{
         width: 70px;
@@ -88,4 +95,8 @@
         width: 10px;
         height: 10px;
     } 
+    .buttons_wrapper button{
+    padding: 10px;
+    font-size: 16px;
+    }
 }

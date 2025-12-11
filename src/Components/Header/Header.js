@@ -5,7 +5,7 @@ import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
 import { CiCircleRemove } from "react-icons/ci";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router";
 
 export default function Header({ basket, fetchData }) {
@@ -27,7 +27,7 @@ export default function Header({ basket, fetchData }) {
         "Content-Type": "application/json",
         Prefer: "return=representation",
       },
-      body: JSON.stringify({ bought: false }),
+      body: JSON.stringify({ bought: false, count: 1 }),
     });
     setLoading(false);
     fetchData();
