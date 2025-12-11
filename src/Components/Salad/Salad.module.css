@@ -1,0 +1,72 @@
+.container{
+  margin: 0 auto;
+  padding: 40px;
+  position: relative;
+  z-index: 999;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header button{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+header button svg{
+    width: 20px;
+    height: 20px;
+}
+main{
+    margin-top: 20px;
+}
+.salad_section{
+    position: relative;
+    z-index: 1;
+}
+.saladWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.saladWrapper img{
+    width: 300px;
+    height: 300px;
+}
+.salad_price_info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 200px;
+}
+.salad_desc{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+    line-height: 1.8;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* responsive section */
+@media (max-width : 770px) {
+    .saladWrapper img{
+        width: 200px;
+        height: 200px;
+    }
+}
+@media (max-width : 480px) {
+    .container{
+        padding: 20px;
+}
+    .saladWrapper h1{
+        font-size: 24px;
+    }
+    .salad_desc{
+        font-size: 16px;
+    }
+}

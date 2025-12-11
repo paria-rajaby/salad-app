@@ -43,13 +43,13 @@ export default function Main({ title, desc, items, onAdd }) {
             {items.map((item) => (
               <SwiperSlide>
                 <div className="salad-wrapper">
-                  <img className="salad-image" src={item.image} alt="" />
+                  <img className="salad-image" src={item.image} alt="salad" />
                   <div className="salad-infos">
                     <span>{item.name}</span>
                     <p>{item.description}</p>
                   </div>
                   <div className="salad-buy_section">
-                    <span>{item.price}</span>
+                    <span>{item.price}$</span>
                     <button
                       onClick={() => {
                         onAdd(item.id);
