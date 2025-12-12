@@ -19,5 +19,9 @@ const router = createBrowserRouter([
         path: "/salad",
         element: <Salad />,
     }
-])
+],
+    {
+        basename: "/salad-app"
+    }
+)
 export default router
