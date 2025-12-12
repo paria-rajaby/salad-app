@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/salad-app/static/css/main.be112766.css",
+    "main.js": "/salad-app/static/js/main.1804d3d6.js",
+    "static/js/453.c7e6b866.chunk.js": "/salad-app/static/js/453.c7e6b866.chunk.js",
+    "static/media/bg9.jpg": "/salad-app/static/media/bg9.670938ea7fedbdb641cb.jpg",
+    "static/media/Nunito-Medium.ttf": "/salad-app/static/media/Nunito-Medium.165869d8fc136281bf52.ttf",
+    "static/media/Nunito-Light.ttf": "/salad-app/static/media/Nunito-Light.58fbc2a9c3b9d20a05b2.ttf",
+    "static/media/Nunito-Bold.ttf": "/salad-app/static/media/Nunito-Bold.093798b5616b52d42e59.ttf",
+    "index.html": "/salad-app/index.html",
+    "main.be112766.css.map": "/salad-app/static/css/main.be112766.css.map",
+    "main.1804d3d6.js.map": "/salad-app/static/js/main.1804d3d6.js.map",
+    "453.c7e6b866.chunk.js.map": "/salad-app/static/js/453.c7e6b866.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be112766.css",
+    "static/js/main.1804d3d6.js"
+  ]
+}
